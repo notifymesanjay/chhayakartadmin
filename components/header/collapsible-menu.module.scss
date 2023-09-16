@@ -1,0 +1,126 @@
+.collapsibleMenu {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  transition: width 0.5s ease;
+  background: white;
+  z-index: 1007;
+}
+
+.mobileSidebar {
+  width: 0;
+}
+
+.collapsibleMenu.open {
+  width: 250px;
+}
+
+.collapsibleMenu.close {
+  width: 75px;
+}
+
+.header,
+.closedHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+}
+
+.closeBtn {
+  background-color: transparent;
+  color: #f25cc5;
+  border: none;
+  margin: 0;
+  margin-top: -15px;
+}
+
+.mobileSidebar .closeBtn,
+.mobileSidebar .openBtn {
+  background: linear-gradient(317.4deg, #141932 38.27%, #898fae 134.17%);
+  color: #f25cc5;
+  padding: 5px 12px;
+  width: 40px;
+  border-radius: 4px;
+}
+
+.mobileSidebar .openBtn {
+  background: transparent;
+  margin-top: -10px;
+  border: none;
+}
+
+.closeBtn:hover,
+.closeBtn:focus,
+.openBtn:hover,
+.openBtn:focus {
+  outline: 0;
+  border: none;
+}
+
+.menuBody {
+  max-height: calc(100vh - 50px);
+  overflow-y: auto;
+}
+
+.collapsibleMenu.close {
+  .menuBody {
+    overflow-x: hidden;
+  }
+}
+
+.menuBody::-webkit-scrollbar {
+  width: 3px;
+}
+
+.menuBody::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+.menuBody::-webkit-scrollbar-thumb {
+  background: #f25cc5;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+.menuBody::-webkit-scrollbar-thumb:hover {
+  background: #f25cc5;
+}
+
+.navbarBrand {
+  width: 200px;
+  height: 50px;
+  background-image: url("../../public/images/chhayakart-pink-logo.png");
+  background-repeat: no-repeat;
+  background-position: center left;
+  background-size: 100%;
+}
+
+.logoWrapper {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 15px;
+}
+
+.logo {
+  color: transparent;
+  width: 175px;
+  height: auto;
+}
+
+.icon {
+  font-size: 12px;
+}
+
+@media only screen and (max-width: 575px) {
+  .header {
+    margin: 10px 10px 0;
+  }
+
+  .closedHeader {
+    margin: 0;
+  }
+}

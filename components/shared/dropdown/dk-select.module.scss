@@ -1,0 +1,27 @@
+.select {
+  border: 1px solid #cfd0d7;
+  border-radius: 2px;
+  color: rgba(26, 32, 61, 0.3);
+  font-size: 14px;
+  font-weight: 300;
+  height: 38px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: url("../../../public/images/caret-down.svg");
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-origin: content-box;
+  background-color: #fcfcfd;
+  padding: 0.25rem 0.5rem;
+  line-height: 1.5;
+  display: block;
+  width: 100%;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.select:focus {
+  background-color: white;
+  color: black;
+  border-radius: 2px;
+  outline: 1px solid #cfd0d7;
+}

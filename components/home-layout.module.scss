@@ -1,0 +1,32 @@
+.bodyWrapper {
+  background-color: #f7f7fa;
+  display: flex;
+}
+
+.main {
+  min-height: 100vh;
+  padding: 24px 16px;
+}
+
+.expanded {
+  width: 250px;
+}
+
+.collapsed {
+  width: 75px;
+}
+
+.expandedBody {
+  width: calc(100% - 250px);
+}
+
+.collapsedBody {
+  width: calc(100% - 75px);
+}
+
+@media only screen and (max-width: 575px) {
+  .collapsedBody,
+  .expandedBody {
+    width: 100%;
+  }
+}

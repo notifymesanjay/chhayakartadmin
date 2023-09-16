@@ -1,0 +1,84 @@
+.formGridWrapper {
+  width: 30%;
+  margin: 65px auto;
+  padding: 25px;
+
+  .customBtn {
+    width: 100%;
+    border-radius: 7px;
+    font-weight: 400;
+    margin-bottom: 20px;
+    padding: 11px;
+  }
+
+  .customBtn:focus {
+    box-shadow: none;
+  }
+
+  .submitBtn,
+  .submitBtn:hover {
+    border: 1px solid #37a279;
+    background: #37a279;
+    color: white;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  .divider {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+
+    hr {
+      width: 100%;
+    }
+
+    p {
+      font-size: 18px;
+      font-weight: 400;
+      color: #e8e8e8;
+      margin: 0 10px;
+    }
+  }
+}
+
+.helpBlock {
+  line-height: 2;
+  color: red;
+  margin-bottom: 15px;
+}
+
+.inputStyle {
+  margin-bottom: 20px;
+  border: 1px solid #cfd0d7;
+  padding: 11px 12px;
+  border-radius: 2px;
+  height: 42px;
+}
+
+.label {
+  font-size: 18px;
+  font-weight: 600 !important;
+  color: #5f6377;
+  font-weight: 400;
+  padding-left: 1px;
+  pointer-events: none;
+  margin-bottom: 5px;
+}
+
+.header{
+    color: #25396F;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.description{
+    margin-bottom: 15px;
+}
+
+@media only screen and (max-width: 767px) {
+  .formGridWrapper {
+    width: 100%;
+    margin: 48px auto;
+  }
+}

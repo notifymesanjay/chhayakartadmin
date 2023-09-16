@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import Home from "../components/home/index";
-import HomeLayout from "../components/home-layout";
-import NotFound from "../components/not-found";
+import Orders from "@/components/orders";
+import HomeLayout from "@/components/home-layout";
+import NotFound from "@/components/not-found";
 
-export default function HomePage() {
+export default function OrdersPage() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
@@ -12,5 +12,11 @@ export default function HomePage() {
     setIsAuthenticated(isLoggedIn);
   }, []);
 
-  return <HomeLayout>{isAuthenticated ? <Home /> : <NotFound />}</HomeLayout>;
+  return (
+    <HomeLayout>
+      {/* {isAuthenticated ?  */}
+      <Orders />
+      {/* : <NotFound />} */}
+    </HomeLayout>
+  );
 }
