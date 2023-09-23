@@ -24,7 +24,7 @@ const useAuthService = () => {
   };
 
   const populateToken = (data) => {
-    const userInfo = parseJwt(data.accessToken);
+    const userInfo = parseJwt(data.access_token);
     const authorizationData = { ...data, ...userInfo };
     setAuthentication(authorizationData);
     localStorage.setItem(
@@ -86,7 +86,7 @@ const useAuthService = () => {
       email: '',
       name: '',
       image: '',
-      accessToken: '',
+      access_token: '',
       phoneNumber: '',
       expiration: '',
       role: '',

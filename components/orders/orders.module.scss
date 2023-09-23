@@ -40,14 +40,25 @@
   cursor: pointer;
 }
 
-.campaignTypeDropDown{
-    width: 200px !important;
+.campaignTypeDropDown {
+  width: 200px !important;
 }
 
-.orderDetailsWrapper{
-    margin: 0 0 25px;
+.orderDetailsWrapper {
+  margin: 0 0 25px;
 }
 
-.billingDetailsWrapper, .orderItemsWrapper{
-    margin: 25px 0;
+.billingDetailsWrapper,
+.orderItemsWrapper {
+  margin: 25px 0;
+}
+
+.printBtn {
+  background-color: #6c757d;
+  color: white;
+  box-shadow: none;
+  border: none;
+  padding: 6px 15px;
+  border-radius: 4px;
+  margin-top: 10px;
 }

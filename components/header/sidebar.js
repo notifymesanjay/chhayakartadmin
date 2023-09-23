@@ -58,19 +58,19 @@ const sideMenu = [
       {
         id: 31,
         name: "Manage Categories",
-        path: "/campaign-manager-dashboard",
+        path: "/",
       },
       {
         id: 32,
         name: "Order Categories",
-        path: "/ngos",
+        path: "/",
       },
     ],
   },
   {
     id: 4,
     name: "Products",
-    path: "/monthlyGiving",
+    path: "/",
     // img: monthlyGiving,
     // activeImg: monthlyGivingActive,
     expand: false,
@@ -79,44 +79,44 @@ const sideMenu = [
       {
         id: 41,
         name: "Manage Products",
-        path: "/campaign-manager-dashboard",
+        path: "/",
       },
       {
         id: 42,
         name: "Units",
-        path: "/ngos",
+        path: "/",
       },
       {
         id: 43,
         name: "Media",
-        path: "/ngos",
+        path: "/",
       },
       {
         id: 44,
         name: "Bulk Upload",
-        path: "/ngos",
+        path: "/",
       },
       {
         id: 45,
         name: "Taxes",
-        path: "/ngos",
+        path: "/",
       },
       {
         id: 46,
         name: "Brands",
-        path: "/ngos",
+        path: "/",
       },
       {
         id: 47,
         name: "Product Order",
-        path: "/ngos",
+        path: "/",
       },
     ],
   },
   {
     id: 5,
     name: "Sellers",
-    path: "/gift-cards",
+    path: "/",
     // img: giftCard,
     // activeImg: giftCardActive,
     expand: false,
@@ -125,32 +125,32 @@ const sideMenu = [
       {
         id: 51,
         name: "Add Seller",
-        path: "/ngos",
+        path: "/",
       },
       {
         id: 52,
         name: "Seller Requests",
-        path: "/ngos",
+        path: "/",
       },
       {
         id: 53,
         name: "Manage Requests",
-        path: "/ngos",
+        path: "/",
       },
       {
         id: 54,
         name: "Seller Commissions",
-        path: "/ngos",
+        path: "/",
       },
       {
         id: 55,
         name: "Seller Wallet Transactions",
-        path: "/ngos",
+        path: "/",
       },
       {
         id: 56,
         name: "Seller Policies",
-        path: "/ngos",
+        path: "/",
       },
     ],
   },
@@ -167,7 +167,7 @@ const sideMenu = [
   {
     id: 7,
     name: "Offer Image",
-    path: "/accounts",
+    path: "/",
     // img: accounts,
     // activeImg: accountsActive,
     expand: false,
@@ -176,12 +176,12 @@ const sideMenu = [
       {
         id: 71,
         name: "Manage Offer Image",
-        path: "/ngos",
+        path: "/",
       },
       {
         id: 72,
         name: "Manage Popup Offer",
-        path: "/ngos",
+        path: "/",
       },
     ],
   },
@@ -197,12 +197,12 @@ const sideMenu = [
       {
         id: 81,
         name: "Manage Section",
-        path: "/images",
+        path: "/",
       },
       {
         id: 82,
         name: "Order Section",
-        path: "/users",
+        path: "/",
       },
     ],
   },
@@ -238,27 +238,27 @@ const sideMenu = [
       {
         id: 111,
         name: "Manage Delivery Boys",
-        path: "/images",
+        path: "/",
       },
       {
         id: 112,
         name: "Delivery Boy Requests",
-        path: "/users",
+        path: "/",
       },
       {
         id: 113,
         name: "Fund Transfers",
-        path: "/users",
+        path: "/",
       },
       {
         id: 114,
         name: "Delivery Boy Cash",
-        path: "/users",
+        path: "/",
       },
       {
         id: 115,
         name: "Delivery Boy Policies",
-        path: "/users",
+        path: "/",
       },
     ],
   },
@@ -274,17 +274,17 @@ const sideMenu = [
       {
         id: 121,
         name: "Send Notification",
-        path: "/images",
+        path: "/",
       },
       {
         id: 122,
         name: "Manage Notifications",
-        path: "/users",
+        path: "/",
       },
       {
         id: 123,
         name: "Notification Settings",
-        path: "/users",
+        path: "/",
       },
     ],
   },
@@ -300,37 +300,37 @@ const sideMenu = [
       {
         id: 131,
         name: "Store Settings",
-        path: "/images",
+        path: "/",
       },
       {
         id: 132,
         name: "Time Slots",
-        path: "/users",
+        path: "/",
       },
       {
         id: 133,
         name: "Payment Methods",
-        path: "/users",
+        path: "/",
       },
       {
         id: 134,
         name: "Contact Us",
-        path: "/users",
+        path: "/",
       },
       {
         id: 135,
         name: "About Us",
-        path: "/users",
+        path: "/",
       },
       {
         id: 136,
         name: "Fire Setup",
-        path: "/users",
+        path: "/",
       },
       {
         id: 137,
         name: "System Registration",
-        path: "/users",
+        path: "/",
       },
     ],
   },
@@ -357,22 +357,22 @@ const sideMenu = [
       {
         id: 151,
         name: "Customers",
-        path: "/images",
+        path: "/",
       },
       {
         id: 152,
         name: "Wishlists",
-        path: "/users",
+        path: "/",
       },
       {
         id: 153,
         name: "Transactions",
-        path: "/users",
+        path: "/",
       },
       {
         id: 154,
         name: "Customer Policies",
-        path: "/users",
+        path: "/",
       },
     ],
   },
@@ -388,12 +388,12 @@ const sideMenu = [
       {
         id: 161,
         name: "Product Sales Report",
-        path: "/images",
+        path: "/",
       },
       {
         id: 162,
         name: "Sales Reports",
-        path: "/users",
+        path: "/",
       },
     ],
   },
@@ -529,13 +529,13 @@ const SideBar = ({ setIsCollapse }) => {
                 <div className={styles.profileWrapper}>
                   <p className={styles.profile}>PROFILE</p>
                   <div className={styles.profileDetails}>
-                    <p className={styles.profileName}>
+                    {/* <p className={styles.profileName}>
                       {
                         JSON.parse(
                           localStorage.getItem("authorizationData")
                         ).email.split("@")[0]
                       }
-                    </p>
+                    </p> */}
                     <div
                       className={styles.test}
                       onClick={() => {
@@ -578,7 +578,7 @@ const SideBar = ({ setIsCollapse }) => {
 
   useEffect(() => {
     const authData = JSON.parse(localStorage.getItem("authorizationData"));
-    const isLoggedIn = authData && authData.accessToken;
+    const isLoggedIn = authData && authData.access_token;
     setIsAuthenticated(isLoggedIn);
   }, []);
 

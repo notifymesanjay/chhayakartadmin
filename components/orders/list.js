@@ -3,6 +3,8 @@ import SimpleTable from "../shared/simple-table";
 import CampaignActions from "./action";
 import PaperModal from "../shared/paper-modal";
 import OrderDetails from "./details";
+import ApiService from "@/services/ApiService";
+import OrderInvoice from "./invoice";
 
 const superHeaderCells = [
   {
@@ -78,11 +80,44 @@ const OrdersList = ({
 }) => {
   const [openDetails, setOpenDetails] = useState(false);
   const [selectedOrder, setSelectedOrder] = useState({});
+  const [invoiceData, setInvoiceData] = useState("<p>Hello</p>");
+  const [openInvoice, setOpenInvoice] = useState(false);
 
   const onDetailsClick = (row) => {
     setOpenDetails(!openDetails);
     setSelectedOrder(row);
   };
+
+  const downloadInvoice = (content, fileName) => {
+    const url = window.URL.createObjectURL(new Blob([content]));
+    const link = document.createElement("a");
+    link.href = url;
+    link.setAttribute("download", fileName);
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+  };
+
+  const onDownloadInvoice = (row) => {
+    new ApiService()
+      .post("api/orders/invoice_download", { order_id: row.id })
+      .then((res) => res.blob())
+      .then((data) => {
+        if (data != null && data != "" && data.size > 0) {
+          downloadInvoice(data, `Invoice-No_#${row.id}.pdf`);
+        }
+      });
+  };
+
+  const onGenerateInvoice = (row) => {
+    setOpenInvoice(true);
+    setSelectedOrder(row);
+    new ApiService()
+    .get(`api/orders/invoice?order_id=${row.id}`)
+    .then((res) => {
+       setInvoiceData(res.data);
+    })
+  }
 
   const cells = [
     {
@@ -114,7 +149,12 @@ const OrdersList = ({
     },
     {
       content: (row) => (
-        <CampaignActions onDetailsClick={onDetailsClick} row={row} />
+        <CampaignActions
+          onDetailsClick={onDetailsClick}
+          row={row}
+          onDownloadInvoice={onDownloadInvoice}
+          onGenerateInvoice={onGenerateInvoice}
+        />
       ),
     },
   ];
@@ -137,6 +177,13 @@ const OrdersList = ({
           <div className="mb-5">
             <OrderDetails selectedOrder={selectedOrder} />
           </div>
+        </PaperModal>
+      )}
+      {openInvoice && (
+        <PaperModal
+        title={<small>Invoice of order - {selectedOrder.id}</small>}
+        onClose={() => setOpenInvoice(!openInvoice)}>
+          <OrderInvoice invoiceData={invoiceData} />
         </PaperModal>
       )}
     </>

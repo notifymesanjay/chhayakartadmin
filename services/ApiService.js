@@ -14,7 +14,7 @@ export default class ApiService {
     if (typeof localStorage !== "undefined") {
       const authData = JSON.parse(localStorage.getItem("authorizationData"));
       if (authData) {
-        headers.Authorization = `Bearer ${authData.accessToken}`;
+        headers.Authorization = `Bearer ${authData.access_token}`; 
       }
     }
 
@@ -29,7 +29,7 @@ export default class ApiService {
     if (typeof localStorage !== "undefined") {
       const authData = JSON.parse(localStorage.getItem("authorizationData"));
       if (authData) {
-        headers.Authorization = `Bearer ${authData.accessToken}`;
+        headers.Authorization = `Bearer ${authData.access_token}`;
       }
     }
 
@@ -41,7 +41,7 @@ export default class ApiService {
     if (localStorage) {
       const authData = JSON.parse(localStorage.getItem("authorizationData"));
       if (authData) {
-        headers.Authorization = `Bearer ${authData.accessToken}`;
+        headers.Authorization = `Bearer ${authData.access_token}`;
       }
     }
 

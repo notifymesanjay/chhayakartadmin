@@ -33,8 +33,9 @@ const Login = () => {
     authService
       .login(loginData)
       .then(function () {
-        const navigateUrl = "/";
-        router.push(navigateUrl);
+        console.log('xyz')
+        // const navigateUrl = "/";
+        router.push('/');
       })
       .catch(function () {
         setIsError(true);
@@ -64,10 +65,9 @@ const Login = () => {
         <label className={styles.label}>Email</label>
         <Input
           type="text"
-          labelText="Email"
           name="email"
           id="email"
-          value={loginData.Email}
+          value={loginData.email}
           isRequired={true}
           placeholder="Enter your Email"
           onChange={updateField}
@@ -76,10 +76,9 @@ const Login = () => {
         <label className={styles.label}>Password</label>
         <Input
           type="password"
-          labelText="Password"
           name="password"
           id="password"
-          value={loginData.Password}
+          value={loginData.password}
           isRequired={true}
           placeholder="Enter your Password"
           onChange={updateField}

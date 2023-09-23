@@ -8,7 +8,7 @@ export default function HomePage() {
 
   useEffect(() => {
     const authData = JSON.parse(localStorage.getItem("authorizationData"));
-    const isLoggedIn = authData && authData.accessToken;
+    const isLoggedIn = authData && authData.access_token;
     setIsAuthenticated(isLoggedIn);
   }, []);
 
