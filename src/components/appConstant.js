@@ -1,0 +1,8 @@
+const appConstant = {
+  ENVIRONMENT: process.env.REACT_APP_PUBLIC_ENVIRONMENT,
+  API_ENDPOINT: process.env.REACT_APP_PUBLIC_API_ENDPOINT,
+  WEB_ENDPOINT: process.env.REACT_APP_PUBLIC_WEB_ENDPOINT,
+  INTERNAL_AUTH_BASE_URL: process.env.REACT_APP_PUBLIC_INTERNAL_AUTH_BASE_URL,
+};
+
+export default appConstant;

@@ -1,0 +1,111 @@
+.tableCell {
+  text-align: center !important;
+  font-family: "Poppins", sans-serif !important;
+  padding: 10px 14px !important;
+  border-bottom: 0 !important;
+}
+
+.tableMobileFullWidth {
+  max-width: 100vw;
+}
+
+.tableMobilePartialWidth {
+  max-width: 70vw;
+}
+
+.table {
+  max-width: 100%;
+}
+
+.table,
+.tableMobileFullWidth,
+.tableMobilePartialWidth {
+  .noborder {
+    border: 0px;
+  }
+
+  .hr {
+    margin: 1px auto;
+  }
+
+  .visuallyHidden {
+    border: 0px;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    margin: -1px auto;
+    overflow: hidden;
+    padding: 0px;
+    position: absolute;
+    top: 20px;
+    width: 1px;
+  }
+}
+
+.pagination {
+  overflow: hidden;
+}
+
+.filterSpacing {
+  border: 1px solid #1d2341 !important;
+  border-left: 0 !important;
+  border-radius: 0 8px 8px 0 !important;
+}
+
+.filterSpacing:focus {
+  box-shadow: none !important;
+  border: 1px solid #1d2341 !important;
+  border-left: 0 !important;
+}
+
+.searchBtn {
+  border: 1px solid #1d2341 !important;
+  border-right: 0 !important;
+  border-radius: 8px 0 0 8px !important;
+}
+
+.tableHeader {
+  background: rgba(242, 92, 197, 0.5);
+}
+
+.tableHeader .tableRow .superHeaderRowCell:last-child {
+  border-right: 0;
+  border-radius: 0 15px 15px 0;
+}
+
+.tableHeader .tableRow .superHeaderRowCell:first-child {
+  border-radius: 15px 0 0 15px;
+}
+
+.tableHeader .tableCell {
+  font-weight: 600;
+  font-size: 14px;
+  padding: 10px 0 10px 20px !important;
+  border-right: 0.2px solid rgba(242, 92, 197, 0.5);
+}
+
+.tableHeader .tableRow .singleTierCell {
+  font-weight: 400;
+}
+
+// .tableBody .tableRow:nth-child(even) {
+//   background: rgba(242, 92, 197, 0.1);
+// }
+
+.tableBody .tableCell:first-child {
+  border-radius: 15px 0 0 15px;
+}
+
+.tableBody .tableCell:last-child {
+  border-radius: 0 15px 15px 0;
+}
+
+.tableBody .tableCell {
+  border: 0;
+  font-size: 14px;
+  border-right: 0.2px solid rgba(242, 92, 197, 0.5);
+  color: black;
+}
+
+.tableBody .tableCell:last-child {
+  border-right: 0;
+}

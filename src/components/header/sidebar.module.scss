@@ -1,0 +1,222 @@
+.navbarWrapper {
+  height: 50px;
+}
+
+.flexItemCenter {
+  display: flex;
+  align-items: center;
+}
+
+.navbar {
+  position: relative;
+  min-height: 50px;
+  padding: 0 16px 0 0;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.navbar.pageScrolled {
+  -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.fixedTop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 99;
+  -moz-box-shadow: 0 5px 10px transparent;
+  -webkit-box-shadow: 0 5px 10px transparent;
+  box-shadow: 0 5px 10px transparent;
+}
+
+.linksWrapper {
+  justify-content: flex-end;
+  flex-grow: 1;
+}
+
+.navbarNav {
+  display: flex;
+  flex-direction: column;
+  padding: 16px 8px;
+  margin-bottom: 0;
+}
+
+.childNav {
+  padding-bottom: 0;
+  padding-left: 18px;
+}
+
+.navbarNav .pageLinksWrapper {
+  min-height: 65vh;
+  margin-bottom: 20px;
+}
+
+.navbarNav > span > li {
+  list-style: none;
+  padding: 10px 12px;
+  padding-left: 0;
+  font-size: 17px;
+  margin-left: 16px;
+}
+
+.navbarNav > span > li > a > .childNav > span > li {
+  margin-left: 0;
+}
+
+.navbarNav > span > li .border {
+  width: 5px;
+  height: 35px;
+  background-color: transparent;
+  border-radius: 8px;
+  padding: 2px;
+  margin-right: 11px;
+}
+
+.navbarNav > span > li .activeBorder {
+  background-color: #f25cc5;
+}
+
+.navbarNav > span > li > a > .childNav > span > li .border {
+  margin-right: 9px;
+}
+
+.childNav > span > li {
+  padding: 5px 0;
+}
+
+.navbarNav > span > li > .inactive,
+.navbarNav > span > li > .active {
+  letter-spacing: 1px;
+  text-decoration: none;
+}
+
+.navbarNav > span > li > .inactive {
+  color: black;
+}
+
+.navbarNav > span > li > .active,
+.navbarNav > span > li > a:focus,
+.navbarNav > span > li > a:hover {
+  color: black;
+}
+
+.navbarToggle {
+  margin-left: 6px;
+  background-color: transparent;
+  border-radius: 4px;
+  border: 1px solid #ff7400;
+  padding: 8px;
+}
+
+.navbarToggle.roundedIcon {
+  border-radius: 40px;
+  width: 40px;
+  height: 40px;
+  background: #ff7400;
+  color: black;
+  padding: 2px 10px;
+  margin: 0;
+}
+
+.navbarToggle:hover,
+.navbarToggle:focus {
+  background-color: #efefef;
+  color: #ff7400;
+}
+
+.iconBar {
+  background-color: #ff7400;
+  display: block;
+  width: 22px;
+  height: 2px;
+  border-radius: 1px;
+}
+
+.iconBar + .iconBar {
+  margin-top: 4px;
+}
+
+li.separator {
+  padding: 0;
+}
+
+.icon svg {
+  width: 14px;
+  height: auto;
+}
+
+.menuIcon {
+  width: 24px;
+  height: auto;
+  margin-right: 5px;
+  margin-top: -5px;
+}
+
+.menuIcon1 {
+  width: 18px;
+  margin-right: 12px;
+  margin-bottom: -2px;
+}
+
+.profileWrapper {
+  .profile {
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+
+  .profileName {
+    text-transform: capitalize;
+    margin-bottom: 0;
+  }
+}
+
+.profileWrapper:hover {
+  color: black;
+}
+
+.profileDetails {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.test {
+  font-size: 24px;
+  font-weight: 600;
+  margin-top: -10px;
+}
+
+.profileWrapper .logoutDropDown {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  padding: 10px 15px;
+  background: #f25cc5;
+  opacity: 1;
+  color: black;
+  border-radius: 4px;
+}
+
+.childrenName {
+  font-size: 15px;
+}
+
+.login {
+  margin-bottom: 20px;
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .navbarNav.miniCartOpen > span > li {
+    padding: 0 8px;
+  }
+
+  .navbarNav.miniCartOpen > span > li > a {
+    font-size: 13px;
+  }
+}

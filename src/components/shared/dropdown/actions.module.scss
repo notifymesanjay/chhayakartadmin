@@ -1,0 +1,51 @@
+.toggleBtn::after,
+.toggleBtn[aria-expanded="true"]::after {
+  content: "\2807" !important;
+  font-size: 24px !important;
+  color: black !important;
+  cursor: pointer !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 40px !important;
+  height: 40px !important;
+  padding: 3px 0 0 6px !important;
+}
+
+.toggleBtn:hover::after {
+  background: rgba(242, 92, 197, 0.5) !important;
+  border-radius: 50% !important;
+}
+
+.toggleBtn[aria-expanded="true"]::after {
+  content: "\00d7";
+  background-color: #f25cc5 !important;
+  border-radius: 50% !important;
+  color: white !important;
+  padding: 0 !important;
+}
+
+.actionMenu {
+  position: absolute !important;
+  left: unset !important;
+  transform: none !important;
+  right: 42px !important;
+  top: 32px !important;
+  background: #f25cc5 !important;
+  border-radius: 4px !important;
+  padding: 12px 16px !important;
+}
+
+.actionVal {
+  font-size: 16px !important;
+  color: rgba(255, 255, 255, 0.5) !important;
+  cursor: pointer !important;
+  text-align: left !important;
+  padding: 8px !important;
+}
+
+.actionVal:hover {
+  color: white !important;
+  text-decoration: none !important;
+  background: transparent !important;
+}

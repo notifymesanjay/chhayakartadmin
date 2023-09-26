@@ -1,0 +1,64 @@
+.cardWrapper {
+  background: #fff;
+  padding: 20px 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  border-radius: 15px;
+  position: relative;
+}
+
+.header {
+  color: #25396f;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.rowWrapper {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.datePicker {
+  padding: 8px !important;
+  font-size: 11px !important;
+  text-align: left !important;
+  width: 200px !important;
+}
+
+.searchIcon {
+  position: absolute;
+  top: 26px;
+  right: 17px;
+  z-index: 1;
+  background: #d0d4e6;
+  box-shadow: 0px 4px 20px rgba(29, 35, 65, 0.1);
+  border-radius: 4px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.campaignTypeDropDown {
+  width: 200px !important;
+}
+
+.orderDetailsWrapper {
+  margin: 0 0 25px;
+}
+
+.billingDetailsWrapper,
+.orderItemsWrapper {
+  margin: 25px 0;
+}
+
+.printBtn {
+  background-color: #6c757d;
+  color: white;
+  box-shadow: none;
+  border: none;
+  padding: 6px 15px;
+  border-radius: 4px;
+  margin-top: 10px;
+}

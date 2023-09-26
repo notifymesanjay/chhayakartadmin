@@ -1,16 +1,11 @@
-import logo from "./logo.svg";
-import $ from 'jquery';
-import "./App.css";
-import { useEffect, useState } from "react";
-import { useResponsive } from "./components/shared/use-responsive";
-import SideBar from "./components/header/sidebar";
-import styles from "./home-layout.module.scss";
-import { Route, Routes } from "react-router-dom";
-import Home from "./components/home";
-import Orders from "./components/orders";
-import Login from "./components/login";
+import Head from 'next/head';
+import { useState, useEffect } from 'react';
+import SideBar from './header/sidebar';
+// import favIcon from "../public/favicon.ico";
+import styles from './home-layout.module.scss';
+import { useResponsive } from './shared/use-responsive';
 
-function App() {
+const HomeLayout = ({ children }) => {
   const { isSmScreen } = useResponsive();
   const [isMenu, setIsMenu] = useState(true);
   const [screenWidth, setScreenWidth] = useState(576);
@@ -28,19 +23,19 @@ function App() {
       setIsMenu(false);
     }
   };
+
   return (
     <>
-      <header>
-        <meta name="viewport" content={`width=device-width, initial-scale=1`} />
+      <Head>
+        <meta name='viewport' content={`width=device-width, initial-scale=1`} />
         <title>Admin | DonateKart</title>
         {/* <link rel="shortcut icon" href={favIcon} /> */}
-      </header>
+      </Head>
       <div className={!isSmScreen && styles.bodyWrapper}>
         <div
           className={
             isCollapse && !isSmScreen ? styles.expanded : styles.collapsed
-          }
-        >
+          }>
           <SideBar
             isMenu={isMenu}
             setIsMenu={setIsMenu}
@@ -54,17 +49,12 @@ function App() {
             isCollapse && !isSmScreen
               ? styles.expandedBody
               : styles.collapsedBody
-          }`}
-        >
-          <Routes>
-            <Route exact={true} path="/" element={<Home />}></Route>
-            <Route exact={true} path="/orders" element={<Orders />}></Route>
-            <Route exact={true} path="/login" element={<Login />}></Route>
-          </Routes>
+          }`}>
+          {children}
         </main>
       </div>
     </>
   );
-}
+};
 
-export default App;
+export default HomeLayout;
