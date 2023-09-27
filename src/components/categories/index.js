@@ -13,7 +13,7 @@ const defaultVal = {
   imageFile: null,
   status: 0,
   id: -1,
-  image_url: ''
+  image_url: "",
 };
 
 const Categories = () => {
@@ -24,18 +24,21 @@ const Categories = () => {
   const [selectedCategory, setSelectedCategory] = useState(defaultVal);
 
   const refreshList = () => {
-    new ApiService().get("api/categories").then((res) => {
-      setCategoryList(res.data);
-      setOpenCreate(false);
-      setIsEdit(false)
-    });
+    new ApiService()
+      .get("api/categories")
+      .then((res) => res.json())
+      .then((res) => {
+        setCategoryList(res.data);
+        setOpenCreate(false);
+        setIsEdit(false);
+      });
   };
 
   useEffect(() => {
-    if(!isEdit){
+    if (!isEdit) {
       setSelectedCategory(defaultVal);
     }
-  },[isEdit]);
+  }, [isEdit]);
 
   useEffect(() => {
     refreshList();
@@ -73,7 +76,7 @@ const Categories = () => {
           }}
         >
           <CategoryForm
-          selectedCategory={selectedCategory}
+            selectedCategory={selectedCategory}
             categories={categoryList}
             refreshList={refreshList}
             isEdit={isEdit}

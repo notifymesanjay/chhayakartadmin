@@ -114,6 +114,7 @@ const OrdersList = ({
     setSelectedOrder(row);
     new ApiService()
     .get(`api/orders/invoice?order_id=${row.id}`)
+    .then((res) => res.json())
     .then((res) => {
        setInvoiceData(res.data);
     })

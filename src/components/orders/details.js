@@ -299,6 +299,7 @@ const OrderDetails = ({ selectedOrder = {} }) => {
   useEffect(() => {
     new ApiService()
       .get(`api/orders/view/${selectedOrder.id}`)
+      .then((res) => res.json())
       .then((res) => {
         setOrderDetails([res.data.order]);
         setOrderedItems(res.data.order_items);

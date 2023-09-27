@@ -49,14 +49,14 @@ const Orders = () => {
   };
 
   const downloadCsv = () => {
-    // new ApiService()
-    //   .post("api/orders/invoice_download", { order_id: row.id })
-    //   .then((res) => res.blob())
-    //   .then((data) => {
-    //     if (data != null && data != "" && data.size > 0) {
-    //       downloadCsvFile(data, `file.csv`);
-    //     }
-    //   });
+    new ApiService()
+      .get("api/orders/get_all_orders")
+      .then((res) => res.blob())
+      .then((data) => {
+        if (data != null && data !== "" && data.size > 0) {
+          downloadCsvFile(data, `file.csv`);
+        }
+      });
   }
  
   useEffect(() => {
@@ -68,6 +68,7 @@ const Orders = () => {
           selectedOrderStatus !== "" ? selectedOrderStatus : ""
         }`
       )
+      .then((res) => res.json())
       .then((res) => {
         setOrders(res.data.orders);
         setSearchableSellerList(res.data.sellers);
