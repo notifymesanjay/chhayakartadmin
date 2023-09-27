@@ -5,6 +5,7 @@ import styles from "./orders.module.scss";
 import DateRange from "../shared/inputs/date-range";
 import DkSelect from "../shared/dropdown/dk-select";
 import ApiService from "../../services/ApiService";
+import PrimaryButton from "../shared/buttons/primary";
 
 const orderStatus = [
   { id: 0, name: "All Orders" },
@@ -37,6 +38,27 @@ const Orders = () => {
     });
   };
 
+  const downloadCsvFile = (content, fileName) => {
+    const url = window.URL.createObjectURL(new Blob([content]));
+    const link = document.createElement("a");
+    link.href = url;
+    link.setAttribute("download", fileName);
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+  };
+
+  const downloadCsv = () => {
+    // new ApiService()
+    //   .post("api/orders/invoice_download", { order_id: row.id })
+    //   .then((res) => res.blob())
+    //   .then((data) => {
+    //     if (data != null && data != "" && data.size > 0) {
+    //       downloadCsvFile(data, `file.csv`);
+    //     }
+    //   });
+  }
+ 
   useEffect(() => {
     new ApiService()
       .get(
@@ -91,6 +113,7 @@ const Orders = () => {
             className={styles.campaignTypeDropDown}
             options={orderStatus}
           />
+          <PrimaryButton onClick={() => {downloadCsv();}}>Download</PrimaryButton>
         </div>
         <OrdersList
           orders={orders}

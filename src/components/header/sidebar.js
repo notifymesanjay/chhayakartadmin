@@ -57,7 +57,7 @@ const sideMenu = [
       {
         id: 31,
         name: "Manage Categories",
-        path: "/",
+        path: "/categories",
       },
       {
         id: 32,
@@ -435,137 +435,134 @@ const SideBar = ({ setIsCollapse }) => {
   const [openCollapse, setOpenCollapse] = useState(!isSmScreen);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [showLogout, setShowLogout] = useState(false);
+  const [openMenuId, setOpenMenuId] = useState(0);
 
-  const siteLinks = (
-    <>
-      <span className={styles.pageLinksWrapper}>
-        {sideMenu.map((menuItem, index) => (
-          <li id="giftCards" role="presentation" key={index}>
-            {openCollapse && (
-              <span
-                className={`${styles.border} ${
-                  menuItem.path !== "" &&
-                  location.pathname === menuItem.path &&
-                  menuItem.id !== 2
-                    ? styles.activeBorder
-                    : ""
-                }`}
-              ></span>
-            )}
-            <NavLink
-              to={menuItem.path}
-              className={
-                menuItem.path !== "" && location.pathname === menuItem.path
-                  ? styles.active
-                  : styles.inactive
-              }
-            >
-              <span
-                onClick={() => {
-                  menuItem.expand = !menuItem.expand;
-                }}
-              >
-                {
-                  //   <Image
-                  //     src={
-                  //       router.pathname === menuItem.path
-                  //         ? menuItem.activeImg
-                  //         : menuItem.img
-                  //     }
-                  //     className={`${styles.menuIcon} ${
-                  //       menuItem.isIcon && styles.menuIcon1
-                  //     }`}
-                  //     width={menuItem.id === 2 ? 18 : 22}
-                  //     height={menuItem.id === 2 && 22}
-                  //     alt={`icon-${menuItem.name}`}
-                  //   />
-                }{" "}
-                {openCollapse && menuItem.name}{" "}
-                {menuItem.children.length > 0 && openCollapse && (
-                  <i className={styles.icon}>
-                    <FontAwesomeIcon icon={faAngleDown} />
-                  </i>
-                )}
-              </span>
-              {menuItem.children.length > 0 && menuItem.expand && (
-                <ul className={`${styles.navbarNav} ${styles.childNav}`}>
-                  <span>
-                    {menuItem.children.map((item, index) => (
-                      <li id="giftCards" role="presentation" key={index}>
-                        {openCollapse && (
-                          <span
-                            className={`${styles.border} ${
-                              location.pathname === item.path
-                                ? styles.activeBorder
-                                : ""
-                            }`}
-                          ></span>
-                        )}
-                        <NavLink
-                          to={item.path}
-                          className={`${
-                            item.path !== "" && location.pathname === item.path
-                              ? styles.active
-                              : styles.inactive
-                          } ${styles.childrenName}`}
-                        >
-                          {openCollapse && item.name}
-                        </NavLink>
-                      </li>
-                    ))}
-                  </span>
-                </ul>
-              )}
-            </NavLink>
-          </li>
-        ))}
-      </span>
-      <span>
-        <li className={styles.login}>
-          {isAuthenticated ? (
-            <NavLink to="" className={styles.inactive}>
+  const siteLinks = useMemo(
+    () => (
+      <>
+        <span className={styles.pageLinksWrapper}>
+          {sideMenu.map((menuItem, index) => (
+            <li id="giftCards" role="presentation" key={index}>
               {openCollapse && (
-                <div className={styles.profileWrapper}>
-                  <p className={styles.profile}>PROFILE</p>
-                  <div className={styles.profileDetails}>
-                    {/* <p className={styles.profileName}>
+                <span
+                  className={`${styles.border} ${
+                    menuItem.path !== "" &&
+                    location.pathname === menuItem.path &&
+                    menuItem.id !== 2
+                      ? styles.activeBorder
+                      : ""
+                  }`}
+                ></span>
+              )}
+              <NavLink
+                to={menuItem.path !== "" && menuItem.path}
+                onClick={() => {
+                  setOpenMenuId(menuItem.id);
+                }}
+                className={
+                  menuItem.path !== "" && location.pathname === menuItem.path
+                    ? styles.active
+                    : styles.inactive
+                }
+              >
+                <span>
+                  {openCollapse && menuItem.name}{" "}
+                  {menuItem.children.length > 0 && openCollapse && (
+                    <i className={styles.icon}>
+                      <FontAwesomeIcon icon={faAngleDown} />
+                    </i>
+                  )}
+                </span>
+                {menuItem.id === openMenuId && menuItem.children.length > 0 && (
+                  <ul className={`${styles.navbarNav} ${styles.childNav}`}>
+                    <span>
+                      {menuItem.children.map((item, index) => (
+                        <li id="giftCards" role="presentation" key={index}>
+                          {openCollapse && (
+                            <span
+                              className={`${styles.border} ${
+                                location.pathname === item.path
+                                  ? styles.activeBorder
+                                  : ""
+                              }`}
+                            ></span>
+                          )}
+                          <NavLink
+                            to={item.path !== "" && item.path}
+                            className={`${
+                              item.path !== "" &&
+                              location.pathname === item.path
+                                ? styles.active
+                                : styles.inactive
+                            } ${styles.childrenName}`}
+                          >
+                            {openCollapse && item.name}
+                          </NavLink>
+                        </li>
+                      ))}
+                    </span>
+                  </ul>
+                )}
+              </NavLink>
+            </li>
+          ))}
+        </span>
+        <span>
+          <li className={styles.login}>
+            {isAuthenticated ? (
+              <NavLink to="" className={styles.inactive}>
+                {openCollapse && (
+                  <div className={styles.profileWrapper}>
+                    <p className={styles.profile}>PROFILE</p>
+                    <div className={styles.profileDetails}>
+                      {/* <p className={styles.profileName}>
                       {
                         JSON.parse(
                           localStorage.getItem("authorizationData")
                         ).email.split("@")[0]
                       }
                     </p> */}
-                    <div
-                      className={styles.test}
-                      onClick={() => {
-                        setShowLogout(!showLogout);
-                      }}
-                    >
-                      ...
-                    </div>
-                    {showLogout && (
-                      <span
-                        className={styles.logoutDropDown}
+                      <div
+                        className={styles.test}
                         onClick={() => {
-                          authService.logOut();
-                          window.location.replace("/login");
+                          setShowLogout(!showLogout);
                         }}
                       >
-                        Logout
-                      </span>
-                    )}
+                        ...
+                      </div>
+                      {showLogout && (
+                        <span
+                          className={styles.logoutDropDown}
+                          onClick={() => {
+                            authService.logOut();
+                            window.location.replace("/login");
+                          }}
+                        >
+                          Logout
+                        </span>
+                      )}
+                    </div>
                   </div>
-                </div>
-              )}
-            </NavLink>
-          ) : (
-            <NavLink className={styles.inactive} to="/login">
-              {openCollapse && "Login"}
-            </NavLink>
-          )}
-        </li>
-      </span>
-    </>
+                )}
+              </NavLink>
+            ) : (
+              <NavLink className={styles.inactive} to="/login">
+                {openCollapse && "Login"}
+              </NavLink>
+            )}
+          </li>
+        </span>
+      </>
+    ),
+    [
+      sideMenu,
+      openMenuId,
+      authService,
+      location,
+      isAuthenticated,
+      openCollapse,
+      showLogout,
+    ]
   );
 
   useEffect(() => {
@@ -581,15 +578,24 @@ const SideBar = ({ setIsCollapse }) => {
     setIsAuthenticated(isLoggedIn);
   }, []);
 
-  return useMemo(() => (
-    <section className={styles.navbarWrapper}>
-      <nav id="header" className={`${styles.navbar} ${styles.flexItemCenter}`}>
-        <CollapsibleMenu isOpen={openCollapse} toggleCollapse={setOpenCollapse}>
-          <ul className={styles.navbarNav}>{siteLinks}</ul>
-        </CollapsibleMenu>
-      </nav>
-    </section>
-  ));
+  return useMemo(
+    () => (
+      <section className={styles.navbarWrapper}>
+        <nav
+          id="header"
+          className={`${styles.navbar} ${styles.flexItemCenter}`}
+        >
+          <CollapsibleMenu
+            isOpen={openCollapse}
+            toggleCollapse={setOpenCollapse}
+          >
+            <ul className={styles.navbarNav}>{siteLinks}</ul>
+          </CollapsibleMenu>
+        </nav>
+      </section>
+    ),
+    [openCollapse, siteLinks]
+  );
 };
 
 export default SideBar;

@@ -1,0 +1,33 @@
+$color-purple: #1d2341;
+
+.tabsWrapper {
+  display: flex;
+}
+
+.tab {
+  color: $color-purple;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding: 12px 16px;
+  width: fit-content;
+  min-width: 100px;
+  text-align: center;
+  border: 1px solid $color-purple;
+  border-radius: 6px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  position: relative;
+  margin: 0;
+}
+
+.tab+.tab {
+  margin-left: -10px;
+}
+
+.tab.active {
+  color: white;
+  background-color: $color-purple;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.3);
+  z-index: 2;
+}

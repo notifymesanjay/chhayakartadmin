@@ -9,6 +9,7 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./components/home";
 import Orders from "./components/orders";
 import Login from "./components/login";
+import Categories from "./components/categories";
 
 function App() {
   const { isSmScreen } = useResponsive();
@@ -59,6 +60,7 @@ function App() {
           <Routes>
             <Route exact={true} path="/" element={<Home />}></Route>
             <Route exact={true} path="/orders" element={<Orders />}></Route>
+            <Route exact={true} path="/categories" element={<Categories />}></Route>
             <Route exact={true} path="/login" element={<Login />}></Route>
           </Routes>
         </main>
