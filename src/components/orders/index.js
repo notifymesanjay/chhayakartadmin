@@ -5,7 +5,7 @@ import styles from "./orders.module.scss";
 import DateRange from "../shared/inputs/date-range";
 import DkSelect from "../shared/dropdown/dk-select";
 import ApiService from "../../services/ApiService";
-import PrimaryButton from "../shared/buttons/primary";
+import ExportExcel from "../shared/excel-export";
 
 const orderStatus = [
   { id: 0, name: "All Orders" },
@@ -29,6 +29,7 @@ const Orders = () => {
   const [selectedOrderStatus, setSelectedOrderStatus] = useState("");
   const [searchableSellerList, setSearchableSellerList] = useState([]);
   const [orders, setOrders] = useState([]);
+  const [allOrders, setAllOrders] = useState([]);
 
   const handleChange = (picker) => {
     setSearchObj({
@@ -38,37 +39,21 @@ const Orders = () => {
     });
   };
 
-  const downloadCsvFile = (content, fileName) => {
-    const url = window.URL.createObjectURL(new Blob([content]));
-    const link = document.createElement("a");
-    link.href = url;
-    link.setAttribute("download", fileName);
-    document.body.appendChild(link);
-    link.click();
-    link.remove();
+  const downloadCsv = () => {
+    new ApiService().get("api/orders/get_all_orders").then((res) => {
+      setAllOrders(res.data);
+    });
   };
 
-  const downloadCsv = () => {
-    new ApiService()
-      .get("api/orders/get_all_orders")
-      .then((res) => res.blob())
-      .then((data) => {
-        if (data != null && data !== "" && data.size > 0) {
-          downloadCsvFile(data, `file.csv`);
-        }
-      });
-  }
- 
   useEffect(() => {
     new ApiService()
       .get(
-        `api/orders?startDate=${moment(searchObj.from).format("YYYY-MM-DD")}&endDate=${
-          moment(searchObj.to).format("YYYY-MM-DD")
-        }&seller=${selectedType !== 1 ? selectedType : ""}&status=${
-          selectedOrderStatus !== "" ? selectedOrderStatus : ""
-        }`
+        `api/orders?startDate=${moment(searchObj.from).format(
+          "YYYY-MM-DD"
+        )}&endDate=${moment(searchObj.to).format("YYYY-MM-DD")}&seller=${
+          selectedType !== 1 ? selectedType : ""
+        }&status=${selectedOrderStatus !== "" ? selectedOrderStatus : ""}`
       )
-      .then((res) => res.json())
       .then((res) => {
         setOrders(res.data.orders);
         setSearchableSellerList(res.data.sellers);
@@ -114,7 +99,7 @@ const Orders = () => {
             className={styles.campaignTypeDropDown}
             options={orderStatus}
           />
-          <PrimaryButton onClick={() => {downloadCsv();}}>Download</PrimaryButton>
+          <ExportExcel excelData={allOrders} fileName={"all_orders"} downloadCsv={downloadCsv} />
         </div>
         <OrdersList
           orders={orders}

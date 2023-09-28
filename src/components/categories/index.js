@@ -26,7 +26,6 @@ const Categories = () => {
   const refreshList = () => {
     new ApiService()
       .get("api/categories")
-      .then((res) => res.json())
       .then((res) => {
         setCategoryList(res.data);
         setOpenCreate(false);

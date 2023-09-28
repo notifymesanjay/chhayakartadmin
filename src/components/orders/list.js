@@ -103,7 +103,7 @@ const OrdersList = ({
       .post("api/orders/invoice_download", { order_id: row.id })
       .then((res) => res.blob())
       .then((data) => {
-        if (data != null && data != "" && data.size > 0) {
+        if (data != null && data !== "" && data.size > 0) {
           downloadInvoice(data, `Invoice-No_#${row.id}.pdf`);
         }
       });
@@ -114,7 +114,6 @@ const OrdersList = ({
     setSelectedOrder(row);
     new ApiService()
     .get(`api/orders/invoice?order_id=${row.id}`)
-    .then((res) => res.json())
     .then((res) => {
        setInvoiceData(res.data);
     })

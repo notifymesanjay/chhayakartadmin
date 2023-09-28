@@ -68,7 +68,7 @@ export default class ApiService {
         }
         return res;
       })
-      // .then((res) => res.json());
+      .then((res) => res.json());
   }
 
   post(url, data, hasFullUrl = false) {
